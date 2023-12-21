@@ -1,0 +1,18 @@
+[
+    {
+        "url": "https://api.example.com/data",
+        "method": "GET",
+        "query": {"param1": "value1"}
+    },
+    {
+        "url": "https://api.example.com/other",
+        "method": "POST",
+        "query": {"param2": "value2"},
+        "body": {"key": "value"}
+    },
+    {
+        "url": "https://api.example.com/something",
+        "method": "PUT",
+        "body": {"data": "example"}
+    }
+]
