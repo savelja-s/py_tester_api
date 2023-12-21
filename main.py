@@ -104,7 +104,7 @@ class BenchmarkTester:
             futures = []
 
             for user_index in range(self.concurrency):
-                futures.append(executor.submit(self.run_test_for_user, bearer_token))
+                futures.append(executor.submit(self.run_test_for_user, _bearer_token))
 
             for future in as_completed(futures):
                 future.result()
@@ -143,14 +143,3 @@ class BenchmarkTester:
                         "\nTime per request:        {:.3f} [ms]".format((self.total_time / self.total_requests) * 1000))
                     log_file.write(
                         "\nTime per request(OU):         {:.3f} [ms]".format(self.total_time / self.concurrency * 1000))
-
-
-if __name__ == "__main__":
-    config_file_path = 'urls-example.json'
-    api_host = 'https://api.example.com'
-    concurrency = 12
-    # bearer_token = None
-    bearer_token = 'some token'
-
-    tester = BenchmarkTester(api_host, config_file_path, concurrency)
-    tester.run_test(bearer_token)
