@@ -146,11 +146,11 @@ class BenchmarkTester:
 
 
 if __name__ == "__main__":
-    config_file_path = 'urls.json'
-    api_host = 'http://127.0.0.1:3334'
+    config_file_path = 'urls-example.json'
+    api_host = 'https://api.example.com'
     concurrency = 12
     # bearer_token = None
-    bearer_token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNjU1ZjJkZC1jYjdiLTRmZjktOGYzOS1iZTUyYTEwNTU3YWMiLCJpYXQiOjE3MDMwODY1MTAsImV4cCI6MTcwNDY0MTcxMCwiaXNzIjoiYnJpY2tzLWxvY2FsIn0.lCCzevXrxg6nRWSTueo1tgkTbc2m3NDrbdvUZf5BbDq8kWYtnysy7-kQuCG-gRFAAb8E_FnD3yeAmt6YBVk7ENCapjL7S3susXzo9D4JLYqRHok-qzAQTox1_MKtJlkXegR5ot6hnD_BMUYbv4XOXBVEuJzJVclOrrgwj96uacghkRfnVbAy_CRWIuXNsmTKb-Qyx5RovoLdzDiywNEH9jQr68OSyVZ9wIpK5EfWJhgEaLXHUF8b8o6YoB58uKMEHOj81tV8QYleOXTecjvVMNfLR2ByhD5pJP1tByUCbpoumboII560dxtjXxzzMaxdb_z7kZpmgi7EnkyauQ-SBw'
+    bearer_token = 'some token'
 
     tester = BenchmarkTester(api_host, config_file_path, concurrency)
     tester.run_test(bearer_token)
