@@ -11,7 +11,7 @@ class BenchmarkTester:
     def __init__(self, _api_host: str, urls_file_path: str, _concurrency=1):
         self.api_host = _api_host
         self.api_port = self.extract_port(_api_host)
-        self.urls = self.load_json_to_dict(urls_file_path)
+        self.urls = self.load_config(urls_file_path)
         self.urls_count = len(self.urls)
         self.concurrency = _concurrency
         self.total_requests = self.urls_count * self.concurrency
@@ -22,7 +22,7 @@ class BenchmarkTester:
         self.log_file_path = f'logs/benchmark_log_{time.strftime("%Y%m%d_%H%M%S")}.log'
 
     @staticmethod
-    def load_json_to_dict(_config_file_path: str):
+    def load_config(_config_file_path: str):
         with open(_config_file_path, 'r') as config_file:
             return json.load(config_file)
 
