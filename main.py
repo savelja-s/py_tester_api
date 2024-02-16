@@ -78,7 +78,7 @@ class BenchmarkTester:
         else:
             return None
 
-    def run_test_for_user(self, _bearer_token=None):
+    def run_test_for_user(self, _bearer_token=None) -> None:
         local_total_time = 0
         local_successful_requests = 0
 
@@ -89,9 +89,9 @@ class BenchmarkTester:
             body = entry.get('body', None)
 
             response_time, status_code, response = self.make_request(url, method, query, body, _bearer_token)
+            local_total_time += response_time
 
             if 200 <= status_code < 210:
-                local_total_time += response_time
                 local_successful_requests += 1
 
         with self.lock:
