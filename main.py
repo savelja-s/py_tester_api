@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Tuple, Union
 import requests
 import json
 import time
@@ -26,7 +26,12 @@ class BenchmarkTester:
         with open(_config_file_path, 'r') as config_file:
             return json.load(config_file)
 
-    def make_request(self, url, method='GET', query=None, payload=None, _bearer_token=None):
+    def make_request(self,
+                     url,
+                     method='GET',
+                     query=None,
+                     payload=None,
+                     _bearer_token=None) -> Tuple[int, int, Union[requests.Response, None]]:
         headers = {'Content-Type': 'application/json'}
 
         if _bearer_token:
