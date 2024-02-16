@@ -53,7 +53,7 @@ class BenchmarkTester:
                 f"Body: {response.text}"
             )
 
-            return response_time, response.status_code, response.text
+            return response_time, response.status_code, response
         except requests.exceptions.RequestException as e:
             return 0, 0, 0
 
